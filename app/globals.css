@@ -364,15 +364,14 @@ body.nav-hidden .topnav { transform: translateY(-110%); }
   border: 1px solid rgba(255,255,255,0.10);
   border-radius: 32px;
   box-shadow:
-    inset 0 2px 0 rgba(255,255,255,0.18),
+    inset 0 2px 0 rgba(255,255,255,0.16),
     inset 0 -1px 0 rgba(0,0,0,0.45),
-    inset 0 0 0 1px rgba(139,71,214,0.14),
-    inset 0 24px 40px -24px rgba(255,255,255,0.14),
+    inset 0 0 0 1px rgba(139,71,214,0.12),
+    inset 0 24px 40px -24px rgba(255,255,255,0.10),
     0 6px 0 rgba(0,0,0,0.55),
     0 12px 0 rgba(0,0,0,0.35),
-    0 30px 80px -20px rgba(0,0,0,0.75),
-    0 0 60px -10px rgba(139,71,214,0.42),
-    0 0 120px -40px rgba(245,208,32,0.28);
+    0 24px 60px -20px rgba(0,0,0,0.75),
+    0 0 40px -16px rgba(139,71,214,0.25);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -468,7 +467,7 @@ body.nav-hidden .topnav { transform: translateY(-110%); }
   z-index: 2;
 }
 .nav-links .notch-gap {
-  width: 140px;
+  width: 220px;
   display: inline-block;
 }
 .nav-links a {
@@ -583,40 +582,55 @@ body.nav-hidden .topnav { transform: translateY(-110%); }
   pointer-events: none;
 }
 
-/* Outer aura — rainbow light cast bleeding into the bar */
+/* Tight subtle aura — no bleed onto bar */
 .orb-wrap::before {
   content: "";
   position: absolute;
-  inset: -56px;
+  inset: -18px;
   border-radius: 50%;
   background:
-    radial-gradient(closest-side, rgba(245,208,32,0.55) 0%, rgba(139,71,214,0.32) 38%, rgba(78,209,230,0.16) 58%, transparent 72%);
-  filter: blur(22px);
+    radial-gradient(closest-side, rgba(245,208,32,0.35) 0%, rgba(139,71,214,0.18) 55%, transparent 75%);
+  filter: blur(10px);
   z-index: -1;
   mix-blend-mode: screen;
-  animation: orbPulse 4s ease-in-out infinite;
+  animation: orbPulse 5s ease-in-out infinite;
 }
 
-/* Bezel socket — a dark recessed ring with inset shadow so the orb looks embedded */
+/* Mechanical bezel — dark brushed ring with 8 bolt heads around the circumference */
 .orb-wrap::after {
   content: "";
   position: absolute;
-  inset: -10px;
+  inset: -12px;
   border-radius: 50%;
-  background: radial-gradient(circle at 50% 40%, rgba(0,0,0,0.6), rgba(0,0,0,0.2) 60%, transparent 72%);
+  background:
+    /* 8 bolt heads at every 45° */
+    radial-gradient(circle 2.5px at 50% 4%,  #FFE668 0 60%, #8a6400 70%, transparent 75%),
+    radial-gradient(circle 2.5px at 83% 17%, #FFE668 0 60%, #8a6400 70%, transparent 75%),
+    radial-gradient(circle 2.5px at 96% 50%, #FFE668 0 60%, #8a6400 70%, transparent 75%),
+    radial-gradient(circle 2.5px at 83% 83%, #FFE668 0 60%, #8a6400 70%, transparent 75%),
+    radial-gradient(circle 2.5px at 50% 96%, #FFE668 0 60%, #8a6400 70%, transparent 75%),
+    radial-gradient(circle 2.5px at 17% 83%, #FFE668 0 60%, #8a6400 70%, transparent 75%),
+    radial-gradient(circle 2.5px at 4%  50%, #FFE668 0 60%, #8a6400 70%, transparent 75%),
+    radial-gradient(circle 2.5px at 17% 17%, #FFE668 0 60%, #8a6400 70%, transparent 75%),
+    /* brushed dark ring base */
+    conic-gradient(from 0deg,
+      #0E0822 0deg, #1A1235 45deg, #0E0822 90deg, #1A1235 135deg,
+      #0E0822 180deg, #1A1235 225deg, #0E0822 270deg, #1A1235 315deg, #0E0822 360deg);
   box-shadow:
-    inset 0 3px 6px rgba(0,0,0,0.8),
-    inset 0 -2px 4px rgba(255,255,255,0.08),
-    0 0 0 1px rgba(245,208,32,0.35);
+    inset 0 2px 3px rgba(0,0,0,0.9),
+    inset 0 -1px 1px rgba(255,255,255,0.08),
+    inset 0 0 0 1px rgba(245,208,32,0.25),
+    0 0 0 1px rgba(0,0,0,0.6),
+    0 4px 10px -4px rgba(0,0,0,0.8);
   z-index: -1;
-  -webkit-mask: radial-gradient(circle, transparent 46%, #000 48%, #000 100%);
-          mask: radial-gradient(circle, transparent 46%, #000 48%, #000 100%);
-  opacity: 0.85;
+  -webkit-mask: radial-gradient(circle, transparent 47%, #000 49%, #000 100%);
+          mask: radial-gradient(circle, transparent 47%, #000 49%, #000 100%);
+  filter: drop-shadow(0 0 4px rgba(245,208,32,0.25));
 }
 
 @keyframes orbPulse {
-  0%, 100% { opacity: 0.85; transform: scale(1); }
-  50%      { opacity: 1;    transform: scale(1.04); }
+  0%, 100% { opacity: 0.8; }
+  50%      { opacity: 1; }
 }
 
 .orb-halo {
@@ -662,11 +676,16 @@ body.nav-hidden .topnav { transform: translateY(-110%); }
     inset 0 0 0 1px rgba(255,232,104,0.2),
     0 2px 0 rgba(0,0,0,0.6),
     0 16px 48px -10px rgba(0,0,0,0.9),
-    0 0 40px -8px rgba(245,208,32,0.35);
+    0 0 20px -4px rgba(245,208,32,0.28);
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  animation: orbWobble 6s ease-in-out infinite;
+}
+@keyframes orbWobble {
+  0%, 100% { transform: rotate(-5deg); }
+  50%      { transform: rotate(5deg); }
 }
 .orb-hub img { width: 82%; height: 82%; object-fit: contain; }
 /* specular highlight sweep on orb */
