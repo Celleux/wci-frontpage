@@ -405,26 +405,38 @@ body.nav-hidden .topnav { transform: translateY(-110%); }
 
 .topnav-seam {
   position: absolute;
-  left: 18px; right: 18px;
-  bottom: 0;
-  height: 2px;
+  left: 12px; right: 12px;
+  bottom: -1px;
+  height: 3px;
   background: linear-gradient(90deg,
-    var(--fifa-red) 0%, var(--fifa-orange) 12%, var(--fifa-yellow) 25%,
-    var(--fifa-lime) 38%, transparent 42%, transparent 58%,
-    var(--fifa-teal) 62%, var(--fifa-blue) 75%, var(--fifa-purple) 88%, var(--fifa-magenta) 100%);
-  border-radius: 2px;
-  opacity: 0.75;
+    var(--fifa-red) 0%, var(--fifa-orange) 10%, var(--fifa-yellow) 22%,
+    var(--fifa-lime) 34%, var(--fifa-teal) 40%, transparent 44%, transparent 56%,
+    var(--fifa-cyan) 60%, var(--fifa-blue) 70%, var(--fifa-purple) 82%, var(--fifa-magenta) 94%, var(--fifa-red) 100%);
+  border-radius: 3px;
+  opacity: 1;
   pointer-events: none;
+  filter:
+    drop-shadow(0 0 6px rgba(245,208,32,0.6))
+    drop-shadow(0 0 14px rgba(139,71,214,0.5))
+    drop-shadow(0 0 24px rgba(78,209,230,0.35));
+  animation: seamPulse 4s ease-in-out infinite;
+}
+@keyframes seamPulse {
+  0%, 100% { opacity: 0.85; }
+  50% { opacity: 1; }
 }
 
+/* Top neon accent line — thin cyan→magenta filament */
 .topnav-inner::before {
   content: "";
-  position: absolute; inset: 0;
+  position: absolute;
+  inset: 0;
+  border-radius: 26px;
   background-image:
-    repeating-linear-gradient(90deg, rgba(255,255,255,0.03) 0 1px, transparent 1px 40px),
-    repeating-linear-gradient(0deg, rgba(255,255,255,0.02) 0 1px, transparent 1px 20px);
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.035) 0 1px, transparent 1px 40px),
+    repeating-linear-gradient(0deg,  rgba(255,255,255,0.025) 0 1px, transparent 1px 20px);
   pointer-events: none;
-  border-radius: 22px;
+  z-index: 0;
 }
 
 .nav-left {
@@ -433,24 +445,32 @@ body.nav-hidden .topnav { transform: translateY(-110%); }
 .wordmark {
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: 22px;
+  font-size: 26px;
   letter-spacing: -0.02em;
-  color: var(--t1);
+  color: #FFF;
+  text-shadow:
+    0 0 1px rgba(255,255,255,0.6),
+    0 0 12px rgba(255,255,255,0.35),
+    0 0 24px rgba(245,208,32,0.35);
 }
-.wordmark .accent { color: var(--gold); }
+.wordmark .accent {
+  color: var(--gold);
+  text-shadow: 0 0 10px var(--gold), 0 0 20px rgba(245,208,32,0.7);
+}
 .nav-tagline {
   font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.18em;
-  color: var(--t3);
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
+  color: var(--fifa-cyan);
   text-transform: uppercase;
-  border-left: 1px solid rgba(255,255,255,0.1);
+  border-left: 1px solid rgba(78,209,230,0.35);
   padding-left: 14px;
+  text-shadow: 0 0 8px rgba(78,209,230,0.6), 0 0 2px rgba(78,209,230,0.9);
 }
 
 .nav-links {
   display: flex;
-  gap: 28px;
+  gap: 22px;
   align-items: center;
   position: relative;
   z-index: 2;
@@ -460,16 +480,57 @@ body.nav-hidden .topnav { transform: translateY(-110%); }
   display: inline-block;
 }
 .nav-links a {
+  position: relative;
   font-family: var(--font-mono);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--t2);
+  color: #EDE6FF;
   text-decoration: none;
-  transition: color 180ms;
+  padding: 8px 4px;
+  text-shadow:
+    0 0 1px rgba(255,255,255,0.5),
+    0 0 12px rgba(183,174,216,0.35);
+  transition: color 220ms cubic-bezier(.22,.61,.36,1), text-shadow 220ms;
 }
-.nav-links a:hover { color: var(--gold); }
+.nav-links a::before {
+  content: "";
+  position: absolute;
+  left: 50%; bottom: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--fifa-cyan), var(--gold), var(--fifa-magenta));
+  border-radius: 2px;
+  transform: translateX(-50%);
+  box-shadow: 0 0 12px var(--gold), 0 0 4px var(--fifa-cyan);
+  transition: width 260ms cubic-bezier(.22,.61,.36,1);
+  pointer-events: none;
+}
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  right: -13px;
+  top: 50%;
+  width: 3px; height: 3px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 8px var(--gold), 0 0 16px rgba(245,208,32,0.4);
+  transform: translateY(-50%);
+  opacity: 0.55;
+  pointer-events: none;
+}
+.nav-links a:last-child::after,
+.nav-links a:has(+ .notch-gap)::after { display: none; }
+.nav-links .notch-gap + a::after { opacity: 0.55; }
+.nav-links a:hover {
+  color: #FFF;
+  text-shadow:
+    0 0 6px #FFF,
+    0 0 14px var(--gold),
+    0 0 24px rgba(245,208,32,0.5);
+}
+.nav-links a:hover::before { width: calc(100% - 8px); }
 
 .nav-right { display: flex; align-items: center; gap: 12px; }
 .btn-connect {
@@ -528,16 +589,56 @@ body.nav-hidden .topnav { transform: translateY(-110%); }
   z-index: 3;
   pointer-events: none;
 }
+
+/* Outer aura — rainbow light cast bleeding INTO the nav bar */
+.orb-wrap::before {
+  content: "";
+  position: absolute;
+  inset: -64px;
+  border-radius: 50%;
+  background:
+    radial-gradient(closest-side, rgba(245,208,32,0.6) 0%, rgba(139,71,214,0.35) 35%, rgba(78,209,230,0.18) 55%, transparent 72%);
+  filter: blur(24px);
+  z-index: -1;
+  mix-blend-mode: screen;
+  animation: orbPulse 4s ease-in-out infinite;
+}
+
+/* Rainbow arc tracing the notch — integrates orb into the bar silhouette */
+.orb-wrap::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  background: conic-gradient(from 135deg,
+    transparent 0deg, transparent 20deg,
+    var(--fifa-red) 40deg, var(--fifa-orange) 60deg, var(--fifa-yellow) 80deg,
+    var(--fifa-lime) 100deg, var(--fifa-teal) 120deg, var(--fifa-cyan) 135deg,
+    transparent 155deg, transparent 205deg,
+    var(--fifa-blue) 225deg, var(--fifa-purple) 250deg, var(--fifa-magenta) 280deg,
+    var(--fifa-red) 310deg, transparent 330deg, transparent 360deg);
+  -webkit-mask: radial-gradient(circle, transparent 63%, #000 64%, #000 70%, transparent 72%);
+          mask: radial-gradient(circle, transparent 63%, #000 64%, #000 70%, transparent 72%);
+  filter: blur(1px) drop-shadow(0 0 12px rgba(245,208,32,0.5));
+  opacity: 0.9;
+  animation: haloSpin 50s linear infinite reverse;
+}
+
+@keyframes orbPulse {
+  0%, 100% { opacity: 0.85; transform: scale(1); }
+  50%      { opacity: 1;    transform: scale(1.04); }
+}
+
 .orb-halo {
   position: absolute;
-  inset: -24px;
+  inset: -28px;
   border-radius: 50%;
   background: conic-gradient(from 0deg,
     var(--fifa-red), var(--fifa-orange), var(--fifa-yellow),
     var(--fifa-lime), var(--fifa-teal), var(--fifa-blue),
     var(--fifa-purple), var(--fifa-magenta), var(--fifa-red));
-  filter: blur(14px);
-  opacity: 0.9;
+  filter: blur(18px);
+  opacity: 0.95;
   animation: haloSpin 40s linear infinite;
 }
 .orb-ring {
