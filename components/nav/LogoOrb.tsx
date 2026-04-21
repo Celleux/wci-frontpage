@@ -9,8 +9,8 @@ export function LogoOrb() {
         <Image
           src="/assets/badge_world_cup_inu_circle.png"
           alt=""
-          width={128}
-          height={128}
+          width={96}
+          height={96}
           priority
           style={{ width: "82%", height: "82%", objectFit: "contain" }}
         />
