@@ -1,13 +1,17 @@
+import Image from "next/image";
+
 export function LogoOrb() {
   return (
     <div className="orb-wrap" aria-label="World Cup Inu · Home">
       <div className="orb-halo" />
       <div className="orb-ring" />
       <div className="orb-hub">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           src="/assets/badge_world_cup_inu_circle.png"
           alt=""
+          width={88}
+          height={88}
+          priority
           style={{ width: "78%", height: "78%", objectFit: "contain" }}
         />
       </div>
