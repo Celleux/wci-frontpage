@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Concentric rainbow arcs background">
+  <!-- Original retro concentric-stripe pattern, generated for World Cup Inu. No third-party trademarks. -->
+  <defs>
+    <radialGradient id="vignette" cx="50%" cy="50%" r="75%">
+      <stop offset="55%" stop-color="rgba(0,0,0,0)"/>
+      <stop offset="100%" stop-color="rgba(0,0,0,0.55)"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="#0A0615"/>
+  <g>
+    <rect x="0"   y="0"   width="1600" height="1000" rx="0"   ry="0"   fill="#7A3AFF" opacity="0.95"/>
+    <rect x="80"  y="80"  width="1440" height="840"  rx="120" ry="120" fill="#E637A8" opacity="0.95"/>
+    <rect x="160" y="160" width="1280" height="680"  rx="110" ry="110" fill="#FF7A1F" opacity="0.95"/>
+    <rect x="240" y="240" width="1120" height="520"  rx="100" ry="100" fill="#F5D020" opacity="0.95"/>
+    <rect x="320" y="320" width="960"  height="360"  rx="90"  ry="90"  fill="#9FD634" opacity="0.95"/>
+    <rect x="400" y="400" width="800"  height="200"  rx="80"  ry="80"  fill="#00B9B2" opacity="0.95"/>
+    <rect x="480" y="460" width="640"  height="80"   rx="40"  ry="40"  fill="#2E6FE6" opacity="0.95"/>
+    <rect x="560" y="490" width="480"  height="20"   rx="10"  ry="10"  fill="#4ED1E6" opacity="0.9"/>
+  </g>
+  <rect width="1600" height="1000" fill="url(#vignette)"/>
+</svg>

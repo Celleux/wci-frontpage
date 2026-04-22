@@ -4,7 +4,7 @@ import { useState } from "react";
 const FAQS = [
   {
     q: "What is $WCI26?",
-    a: "$WCI26 is the World Cup Inu token — a meme coin built around Paul-the-Octopus oracle and pari-mutuel betting on FIFA World Cup 2026 matches. 3/3 tax, 0% house edge. No VC. No team allocation.",
+    a: "$WCI26 is the World Cup Inu token — a meme coin built around Paul-the-Octopus oracle and pari-mutuel betting on the 2026 World Cup matches. 3/3 tax, 0% house edge. No VC. No team allocation.",
   },
   {
     q: "Who is Paul?",
@@ -32,7 +32,7 @@ const FAQS = [
   },
   {
     q: "How long is the tournament?",
-    a: "FIFA World Cup 2026 runs Jun 11 – Jul 19, 2026. That's 39 days, 104 matches, 16 host cities across USA, Mexico, and Canada.",
+    a: "The 2026 World Cup runs Jun 11 – Jul 19, 2026. That's 39 days, 104 matches, 16 host cities across USA, Mexico, and Canada.",
   },
   {
     q: "What is liquidity locked on UNCX?",

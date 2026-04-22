@@ -90,7 +90,7 @@ body {
 .page-bg::after {
   content: "";
   position: absolute; inset: 0;
-  background-image: url("/fifa26_pattern.jpg");
+  background-image: url("/pattern-arcs.svg");
   background-size: cover;
   background-position: center;
   opacity: var(--arcs-opacity);
@@ -1185,7 +1185,7 @@ body:not([data-pm="scales"]) .pm-scales { display: none; }
 .dashboard-cta::before {
   content: "";
   position: absolute; inset: 0;
-  background-image: url("/fifa26_pattern.jpg");
+  background-image: url("/pattern-arcs.svg");
   background-size: cover;
   background-position: center;
   opacity: 0.4;
@@ -1317,6 +1317,22 @@ body[data-state="oracle-offline"] .paul-halo    { opacity: 0.04; }
 .footer-links { display: flex; flex-direction: column; gap: 10px; }
 .footer-links a { font-family: var(--font-mono); font-size: 13px; color: var(--t2); text-decoration: none; letter-spacing: 0.04em; transition: color 160ms; }
 .footer-links a:hover { color: var(--gold); }
+.footer-disclaimer {
+  padding: 28px 72px 24px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  font-family: var(--font-body);
+  font-size: 11px;
+  line-height: 1.55;
+  color: var(--t3);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.footer-disclaimer p { margin: 0 0 10px; }
+.footer-disclaimer p:last-of-type { margin-bottom: 0; }
+.footer-disclaimer strong { color: var(--t2); font-weight: 600; }
+.footer-disclaimer a { color: var(--gold); text-decoration: underline; text-decoration-color: rgba(245,208,32,0.4); }
+.footer-disclaimer a:hover { text-decoration-color: var(--gold); }
+
 .footer-bottom { padding: 20px 72px; border-top: 1px solid rgba(255,255,255,0.04); display: flex; justify-content: space-between; align-items: center; font-family: var(--font-mono); font-size: 11px; color: var(--t3); letter-spacing: 0.12em; }
 .footer-rainbow { height: 3px; background: linear-gradient(90deg, var(--fifa-red), var(--fifa-orange), var(--fifa-yellow), var(--fifa-lime), var(--fifa-teal), var(--fifa-blue), var(--fifa-purple), var(--fifa-magenta)); }
 
@@ -1337,6 +1353,7 @@ body[data-state="oracle-offline"] .paul-halo    { opacity: 0.04; }
   .nation-cards { grid-template-columns: 1fr 1fr; }
   .dashboard-cta { padding: 96px 40px; }
   .site-footer { grid-template-columns: 1fr 1fr; padding: 48px 40px; }
+  .footer-disclaimer { padding: 24px 40px; }
   .footer-bottom { padding: 16px 40px; flex-direction: column; gap: 8px; text-align: center; }
 }
 @media (max-width: 640px) {
@@ -1356,6 +1373,7 @@ body[data-state="oracle-offline"] .paul-halo    { opacity: 0.04; }
   .browser-content { padding: 24px 20px; min-height: 200px; }
   .browser-mock-stats { gap: 16px; flex-wrap: wrap; justify-content: center; }
   .site-footer { grid-template-columns: 1fr; padding: 40px 20px; gap: 32px; }
+  .footer-disclaimer { padding: 20px; }
   .footer-bottom { padding: 16px 20px; }
 }
 @media (prefers-reduced-motion: reduce) {

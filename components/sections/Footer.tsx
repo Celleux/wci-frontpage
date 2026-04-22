@@ -46,7 +46,7 @@ export default function Footer() {
           <p>
             World Cup Inu &mdash; $WCI26.
             <br />
-            Paul-the-Octopus oracle for FIFA WC26.
+            Paul-the-Octopus oracle for the 2026 World Cup.
             <br />
             Pari-mutuel &middot; 0% edge &middot; USDC.
           </p>
@@ -75,6 +75,47 @@ export default function Footer() {
             </nav>
           </div>
         ))}
+      </div>
+
+      {/* Legal disclaimer */}
+      <div className="footer-disclaimer">
+        <p>
+          <strong>Disclaimer.</strong> World Cup Inu ($WCI26) is an independent
+          fan-built meme coin and prediction project. <strong>It is not affiliated
+          with, sponsored by, endorsed by, or in any way officially connected
+          to FIFA, Concacaf, the Confederation of North, Central American and
+          Caribbean Association Football, U.S. Soccer, the Mexican Football
+          Federation, the Canadian Soccer Association, or any participating
+          national federation, team, club, broadcaster, sponsor, or
+          tournament organizer.</strong>
+        </p>
+        <p>
+          &ldquo;FIFA&rdquo;, &ldquo;FIFA World Cup&rdquo;, &ldquo;World Cup
+          2026&rdquo;, the official tournament emblem, mascots, trophy and any
+          related names, logos, designs, slogans and trade dress are the
+          exclusive property of their respective owners. All references on this
+          site to the 2026 tournament are nominative descriptive references for
+          the purpose of identifying the publicly-known calendar of football
+          matches our oracle predicts. Any visual likenesses on this site
+          (including the chibi illustrations) are original artworks created for
+          this project; resemblance to any official mascot, emblem, or design is
+          coincidental and unintended.
+        </p>
+        <p>
+          $WCI26 is a digital collectible with no intrinsic value. Nothing on
+          this page is investment, financial, tax, or legal advice. Crypto-asset
+          values are highly volatile and you can lose all of your funds.
+          Participation may be restricted in your jurisdiction; check local laws
+          before buying or betting. Pari-mutuel pools settle on-chain via
+          Chainlink data feeds &mdash; outcomes are non-reversible. Do your own
+          research. Not for use by U.S. Persons where applicable laws restrict
+          such participation.
+        </p>
+        <p style={{ marginTop: 12 }}>
+          To request removal of any third-party reference you believe is
+          infringing, contact{" "}
+          <a href="mailto:legal@wci26.com">legal@wci26.com</a>.
+        </p>
       </div>
 
       <div className="footer-bottom">
